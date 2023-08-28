@@ -13,6 +13,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - pg-network
+    network_mode: bridge  # Specify bridge network mode
 
   pgadmin:
     image: dpage/pgadmin4
@@ -23,10 +24,12 @@ services:
       - "8081:80"
     networks:
       - pg-network
+    network_mode: bridge  # Specify bridge network mode
 
 networks:
   pg-network:
 
 volumes:
   postgres_data:
+
 
